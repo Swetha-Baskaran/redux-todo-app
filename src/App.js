@@ -1,6 +1,5 @@
 import './App.css';
 import img from "./assets/Sprinkle.png"
-import InputBox from './components/modal/Modal';
 import TodoList from './components/TodoList/TodoList';
 
 const Background = {
