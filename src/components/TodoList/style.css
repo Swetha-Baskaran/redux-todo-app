@@ -1,0 +1,26 @@
+.todoSearchBar{
+    background-color: rgba(169, 169, 169, 0.197);
+    color: #00296b;
+    outline: none;
+    padding: 0.2rem 1rem 0.2rem 0.8rem;
+    border-radius: 1.5rem;
+}
+
+.deleteButton{
+   border: 1px solid #fdc500;
+   border-radius: 5px;
+   color: #fdc500;
+   font-weight: bolder;
+   padding: 0.4rem 1rem;
+}
+
+.deleteButton:hover{
+    background-color: #fdc500;
+    color: white;
+}
+
+.selectOptions{
+    background-color: white;
+    border-radius: 0px;
+    margin: 2px;
+}
