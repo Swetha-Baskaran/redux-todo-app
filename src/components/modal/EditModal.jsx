@@ -9,7 +9,7 @@ import { ImCross } from 'react-icons/im'
 const EditInputBox = ({ value, index }) => {
   const taskList = useSelector( state => state.list.value);
 
-  const [changeInput, setChangeInput] = useState("")
+  const [changeInput, setChangeInput] = useState(taskList[index].value)
   const [status, setStatus] = useState(taskList[index].status)
   const [isModalOpen, setIsModalOpen] = useState("")
   const dispatch = useDispatch()
@@ -64,32 +64,34 @@ const EditInputBox = ({ value, index }) => {
             WebkitOverflowScrolling: 'touch',
             borderRadius: '4px',
             outline: 'none',
-            padding: '20px',
+            padding: '10px',
             height: '14rem',
             overflow: 'hidden',
           }
         }}
       >
-          <div className='flex justify-between pb-2 border-b-2 border-gray-300'>
+          <div className='flex justify-between items-center pb-2 pt-1 px-2 border-b-2 border-gray-300'>
             <p className='text-blue-900 font-bold'>Edit Task</p>
             <p className='text-blue-900 font-bold' 
                onClick={()=>{setIsModalOpen(isModalOpen === "" ? false : !isModalOpen)}}><ImCross /></p>
           </div>
-          <div className='mt-3'>
-             <label htmlFor="task">
-                 Edit todo
+          <div className='mt-3 flex items-center lg:ml-16'>
+                <label htmlFor="task">
+                   Edit todo
+                </label>
                 <input 
                        id="task" 
                        type="text"
+                       value={changeInput}
                        onChange={ e => setChangeInput(e.target.value)}
                        className={styles["task-input-field"]}
                 />
-             </label>
           </div>
           
-          <div>
-             <label htmlFor="taskStatus">
-                 Status
+          <div className='mt-3 flex items-center lg:ml-16'>
+                 <label htmlFor="taskStatus">
+                    Status
+                 </label>
                  <select id="taskStatus"
                          onChange={e => setStatus(e.target.value)}
                          className={styles["task-input-field"]}
@@ -97,7 +99,6 @@ const EditInputBox = ({ value, index }) => {
                    <option value="pending" selected={status === "completed"}>Pending</option>
                    <option value="completed" selected={status === "completed"}>Completed</option>
                  </select>
-             </label>
           </div>
           
           <div className="flex justify-center">

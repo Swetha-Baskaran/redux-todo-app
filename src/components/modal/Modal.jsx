@@ -67,7 +67,7 @@ const InputBox = ({ value }) => {
           }
         }}
       >
-        <div className='flex justify-between pb-2 border-b-2 border-gray-300'>
+        <div className='flex justify-between items-center pb-2 pt-1 px-2 border-b-2 border-gray-300'>
           <p className='text-blue-900 font-bold'>Add New Task</p>
           <p className='text-blue-900 font-bold' 
              onClick={()=>{setIsModalOpen(isModalOpen === "" ? false : !isModalOpen)}}><ImCross /></p>
