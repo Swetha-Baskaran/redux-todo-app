@@ -24,14 +24,21 @@ const TodoList = () => {
   }
 
   const handleSearchChange = (e) => {
-      setSearchChange(e.target.value)
+      let str = e.target.value 
+      str.replace(/\\/g, '')
+      const metaArray = [".", "^", "$", "*", "+", "-", "?", "(", ")", "[", "]", "{", "}", "\\/" , "|"]
+      if(metaArray.includes(str[str.length-1]) === true){
+         str[str.length-1] = ""
+         setSearchChange(str)
+      }
+      setSearchChange(str)
   }
 
   const searchFuntion = () => {
       const regex = new RegExp(searchChange)
       return searchChange === "" ? listOutput() : listOutput().filter((e) =>{ return regex.test(e.value) === true } )
   }
-
+ 
   return (
     <div>
         <InputBox value={isModalOpen} />
@@ -49,6 +56,7 @@ const TodoList = () => {
         <div className='flex justify-between bg-white py-6 mx-3 sm:mx-8 lg:mx-72 shadow-sm rounded my-4 px-5'>
            <div><input type="search" 
                        placeholder="search" 
+                       value={searchChange}
                        onChange={(e) => handleSearchChange(e)}
                        className="todoSearchBar" /></div>
            <div>
@@ -62,7 +70,7 @@ const TodoList = () => {
         <div className='bg-white py-6 mx-3 sm:mx-8 lg:mx-72 shadow-lg rounded'>
             <div className='itemBox'>
             {
-                searchFuntion().length === 0 ? <div className='text-gray-400 text-center'>No Task Scheduled</div>
+                searchFuntion().length === 0 ? <div className='text-gray-400 text-center py-7 text-xl'>No Task Scheduled</div>
                  :   searchFuntion().map((e, index)=> {
                       return (
                        <div key={index}>
