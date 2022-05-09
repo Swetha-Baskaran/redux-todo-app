@@ -61,7 +61,7 @@ const InputBox = ({ value }) => {
             WebkitOverflowScrolling: 'touch',
             borderRadius: '4px',
             outline: 'none',
-            padding: '20px',
+            padding: '10px',
             height: '14rem',
             overflow: 'hidden',
           }
@@ -72,28 +72,28 @@ const InputBox = ({ value }) => {
           <p className='text-blue-900 font-bold' 
              onClick={()=>{setIsModalOpen(isModalOpen === "" ? false : !isModalOpen)}}><ImCross /></p>
         </div>
-        <div className='mt-3'>
-             <label htmlFor="task">
-                 Add todo
+        <div className='mt-3 flex items-center lg:ml-16'>
+                <label htmlFor="task">
+                  Task
+                </label>
                 <input 
                        id="task" 
                        type="text"
                        onChange={ e => setChangeInput(e.target.value)}
                        className={styles["task-input-field"]}
                 />
-             </label>
           </div>
           
-          <div>
-             <label htmlFor="taskStatus">
-                 Status
+          <div className='mt-3 flex items-center lg:ml-16'>
+                 <label htmlFor="taskStatus">
+                   Status
+                 </label>
                  <select id="taskStatus"
                          onChange={e => setStatus(e.target.value)}
                          className={styles["task-input-field"]}>
                    <option value="pending">Pending</option>
                    <option value="completed">Completed</option>
                  </select>
-             </label>
           </div>
           
           <div className="flex justify-center">

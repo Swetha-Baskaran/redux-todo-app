@@ -12,7 +12,17 @@
   padding: 0;
   scroll-behavior: smooth;
   overflow: hidden;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Rubik', sans-serif;;
+}
+
+::-webkit-scrollbar{
+  width: 5px;
+  background-color: rgba(181, 181, 176, 0.273);
+  border-radius: 1.5rem;
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: #fdc500;
 }
 
 @media (max-width: 300px) {
